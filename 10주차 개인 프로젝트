@@ -1,0 +1,29 @@
+import time
+import random
+
+answer = '네'
+while answer == '네' :
+  print('급식 더 받을 사람 뽑기가 시작됩니다.')
+  menu = input ('메뉴명을 입력하세요: ')
+  number = int(input( menu + '의 남은 수량을 입력해주세요: '))
+  student = int(input('더 받기를 희망하는 학생수를 적어주세요: '))
+
+  # 수정 전 코드
+  # a = range(1,student)+1)
+  # a = list(a)
+  # b = random.sample(a, int(number)) # sample을 random으로 교체하면 오류가 발생함
+
+  a = list(range(1,student+1))
+  random.shuffle(a)
+  a = a[:number] #tip: list이름 앞에 붙여서[:]하기!
+
+  # 수정 전 코드
+  # print( menu + '를 더 받을 학생은') # 아래 3줄을 한 문장으로 할 수는 없을까?: print( b + '번째 학생입니다') 로 하니 오류가 남
+  # print(b)
+  # print('번째 학생입니다~')
+
+  print(menu+' 메뉴를 더 받을 학생은 손 든 학생 중'+str(a)+'번째 학생입니다.')
+  time.sleep(1.5)
+  keep = input ('더 뽑으시겠습니까?(예/아니오): ')
+  if keep == '아니오' :
+    break
